@@ -1,6 +1,7 @@
 # LaTex_Code-To-Img-API
 
  将LaTex公式代码转换为图片的API。Translate LaTeX code to image API.
+ 公共API:api.hk.jmstrand.cn
 
 ## 环境要求
 
