@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaTex_code-To-Img-API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            width: 90%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #666;
+            word-wrap: break-word;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 40px;
+                width: 60%;
+            }
+
+            p {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                width: 50%;
+            }
+
+            p {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var protocol = window.location.protocol;
+            var hostname = window.location.hostname;
+            var port = window.location.port;
+            var baseURL = `${protocol}//${hostname}:${port}`;
+            var path = "/latex_to_image";
+
+
+            const latex_code_1 = "\\[ \\text{Cov}(X, Y) = E[(X - E[X])(Y - E[Y])] \\]";
+            const latex_code_2 = "\\begin{equation}\\iint_{\Omega} \\left( \\frac{\\partial u}{\\partial x} \\frac{\\partial v}{\\partial x} + \\frac{\\partial u}{\\partial y} \\frac{\\partial v}{\\partial y} \\right) \\, dx \\, dy = \\int_{\Gamma} v \\frac{\\partial u}{\\partial n} \\, ds\\end{equation}";
+            var fullURL_1 = `${baseURL}${path}?latex_code=${latex_code_1}`;
+            var fullURL_2 = `${baseURL}${path}?latex_code=${latex_code_2}`;
+
+            var linkContainer1 = document.getElementById('link-container1');
+            var link = document.createElement('p');
+            link.href = fullURL_1;
+            link.textContent = fullURL_1;
+            link.target = '_blank';
+            linkContainer1.appendChild(link);
+
+            var linkContainer2 = document.getElementById('link-container2');
+            var link = document.createElement('p');
+            link.href = fullURL_2;
+            link.textContent = fullURL_2;
+            link.target = '_blank';
+            linkContainer2.appendChild(link);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>LaTex_Code-To-Img-API</h1>
+        <p>这是一个简单的LaTex公式代码转图片的API</p>
+        <p>请求的路径是/latex_to_image</p>
+        <p>请求的method是GET</p>
+        <p>传递参数latex_code，参数的值为LaTex代码，下面是一个简单的示例</p>
+        <p>对于LaTex公式\[ \text{Cov}(X, Y) = E[(X - E[X])(Y - E[Y])]\]，请求的URL是<div id="link-container1"></div></p>
+        <p>得到的响应的是一张图片</p>
+        <img src="images/latex_to_image.png" alt="latex_api">
+        <p>复杂的也没关系，比如:</p>
+        <p>\begin{equation}</p>
+        <p>\iint_{\Omega} \left( \frac{\partial u}{\partial x} \frac{\partial v}{\partial x} + \frac{\partialu}{\partial y} \frac{\partial v}{\partial y} \right) \, dx \, dy = \int_{\Gamma} v \frac{\partialu}{\partial n} \, ds</p>
+        <p>\end{equation}</p>
+        <p>请求的URL是<div id="link-container2"></div><p>
+        <img src="images/latex_to_image_complex.png" alt="latex_api">
+    </div>
+
+</body>
+
+</html>
