@@ -26,7 +26,7 @@ yarn install
 ### 配置config.js
 
 1. port为服务运行的端口，默认为9000。
-2. ImageMagick为图片处理库，请根据系统选择合适的命令。一般Windows下为magick，Mac/Linux下为convert。
+2. ImageMagick为图片处理库，请根据系统选择合适的命令。一般Windows下为magick，Linux下为convert。
 
 ### 启动服务
 
