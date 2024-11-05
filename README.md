@@ -7,7 +7,7 @@
 ## 环境要求
 
 - Node.js >= 14.x
-- npm >= 6.x（推荐）或 yarn >= 1.x
+- npm >= 6.x 或 yarn >= 1.x
 - ImageMagick
 - MikTex
 
